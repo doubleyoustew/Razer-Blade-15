@@ -1,4 +1,6 @@
-# Razer-Blade-15
+# Razer Blade 15 (early 2019) Opencore
+
+This is my opencore config for the Razer Blade 15. Most stuff works, but there are minor quirks that still need some work. Use this as is or as a starting point for your hackintosh.
 
 ## Things that don't work or are untested
 
