@@ -1,0 +1,17 @@
+1. Add rename(s) to config.plist
+
+++++++++++++++++++++++++++++++++++++++
+
+    Find _PTS:      	5f 50 54 53 01
+    Replace ZPTS:   	5a 50 54 53 01
+
+    Find _WAK:		5f 57 41 4b 01
+    Replace ZWAK:       5a 57 41 4b 01
+
+    Find RTEC:      	47055254 45430070
+    Replace XTEC:   	47055854 45430070
+
+
+++++++++++++++++++++++++++++++++++++++
+
+2. Place SSDT aml files into Clover/ACPI/patched

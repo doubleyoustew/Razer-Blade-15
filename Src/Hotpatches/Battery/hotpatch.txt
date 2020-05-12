@@ -1,0 +1,14 @@
+1. Add rename(s) to config.plist
+
+++++++++++++++++++++++++++++++++++++++
+
+    Find _BIF:      	14 44 13 5F 42 49 46 00
+    Replace _BIZ:   	14 44 13 5F 42 49 5a 00
+
+    Find _BST:		14 4D 09 5F 42 53 54 00
+    Replace _BSZ:       14 4D 09 5F 42 53 5a 00
+
+
+++++++++++++++++++++++++++++++++++++++
+
+2. Place SSDT aml files into Clover/ACPI/patched
