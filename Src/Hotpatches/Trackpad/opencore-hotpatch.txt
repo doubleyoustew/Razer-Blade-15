@@ -3,9 +3,9 @@
 
 ++++++++++++++++++++++++++++++++++++++
 
-    Find _CRS:          5F 43 52 53
-    Replace XCRS:       58 43 52 53
-    Skip:		75
+    Find _CRS:          14 4C 04 5F 43 52 53 00
+    Replace XCRS:       14 4C 04 58 43 52 53 00
+    Skip:		0
     Count:		1
     Table Signature:	44 53 44 54
 
