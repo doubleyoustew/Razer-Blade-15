@@ -14,17 +14,17 @@
 DefinitionBlock("", "SSDT", 2, "HACK", "BATT", 0)
 {
     External (_SB.PCI0.LPCB, DeviceObj)
-    External (_SB.PCI0.LPCB.EC__, DeviceObj)
-    External (_SB_.PCI0.LPCB.EC__.ECUP, UnknownObj)
-    External (_SB_.PCI0.LPCB.EC__.ECON, UnknownObj)
-    External (_SB_.PCI0.LPCB.EC__.PSTA, UnknownObj)
+    External (_SB.PCI0.LPCB.EC0_, DeviceObj)
+    External (_SB_.PCI0.LPCB.EC0_.ECUP, UnknownObj)
+    External (_SB_.PCI0.LPCB.EC0_.ECON, UnknownObj)
+    External (_SB_.PCI0.LPCB.EC0_.PSTA, UnknownObj)
     External (_SB.PCI0.LPCB.BAT0, DeviceObj)
     External (_SB.PCI0.LPCB.PAK1, UnknownObj)
     External (_SB.PCI0.LPCB.BFB0, UnknownObj)
     
     Scope (_SB.PCI0.LPCB)
     {
-        Scope (EC)
+        Scope (EC0)
         {
             OperationRegion (ERM2, EmbeddedControl, 0x90, 0x0A)
             Field(ERM2, ByteAcc, NoLock, Preserve)
@@ -81,36 +81,36 @@ DefinitionBlock("", "SSDT", 2, "HACK", "BATT", 0)
         {
             Method (_BIF, 0, NotSerialized)
             {
-                If (^^EC.ECUP)
+                If (^^EC0.ECUP)
                 {
                     Return (PAK1)
                 }
 
-                If (LEqual (^^EC.ECON, One))
+                If (LEqual (^^EC0.ECON, One))
                 {
-                    And (^^EC.PSTA, 0x02, Local0)
+                    And (^^EC0.PSTA, 0x02, Local0)
                     If (Local0)
                     {
-                        Store (B1B2(^^EC.IF00,^^EC.IF01), Local0)
+                        Store (B1B2(^^EC0.IF00,^^EC0.IF01), Local0)
                         Store (Local0, Index (PAK1, Zero))
                         If (Local0)
                         {
-                            Store (B1B2(^^EC.IF10,^^EC.IF11), Index (PAK1, One))
-                            Store (B1B2(^^EC.IF20,^^EC.IF21), Index (PAK1, 0x02))
+                            Store (B1B2(^^EC0.IF10,^^EC0.IF11), Index (PAK1, One))
+                            Store (B1B2(^^EC0.IF20,^^EC0.IF21), Index (PAK1, 0x02))
                         }
                         Else
                         {
-                            Multiply (B1B2(^^EC.IF10,^^EC.IF11), 0x0A, Local1)
+                            Multiply (B1B2(^^EC0.IF10,^^EC0.IF11), 0x0A, Local1)
                             Store (Local1, Index (PAK1, One))
-                            Multiply (B1B2(^^EC.IF20,^^EC.IF21), 0x0A, Local1)
+                            Multiply (B1B2(^^EC0.IF20,^^EC0.IF21), 0x0A, Local1)
                             Store (Local1, Index (PAK1, 0x02))
                         }
 
-                        Store (B1B2(^^EC.IF30,^^EC.IF31), Index (PAK1, 0x03))
-                        Store (B1B2(^^EC.IF40,^^EC.IF41), Index (PAK1, 0x04))
-                        Store (Divide (B1B2(^^EC.IF10,^^EC.IF11), 0x32, ), Index (PAK1, 0x05))
-                        Store (Divide (B1B2(^^EC.IF10,^^EC.IF11), 0x64, ), Index (PAK1, 0x06))
-                        Store (ToString (^^EC.RECB(0x60,256), 0x20), Index (PAK1, 0x0A))
+                        Store (B1B2(^^EC0.IF30,^^EC0.IF31), Index (PAK1, 0x03))
+                        Store (B1B2(^^EC0.IF40,^^EC0.IF41), Index (PAK1, 0x04))
+                        Store (Divide (B1B2(^^EC0.IF10,^^EC0.IF11), 0x32, ), Index (PAK1, 0x05))
+                        Store (Divide (B1B2(^^EC0.IF10,^^EC0.IF11), 0x64, ), Index (PAK1, 0x06))
+                        Store (ToString (^^EC0.RECB(0x60,256), 0x20), Index (PAK1, 0x0A))
                         Return (PAK1)
                     }
                     Else
@@ -125,20 +125,20 @@ DefinitionBlock("", "SSDT", 2, "HACK", "BATT", 0)
             }
             Method (_BST, 0, NotSerialized)
             {
-                If (^^EC.ECUP)
+                If (^^EC0.ECUP)
                 {
                     Return (BFB0)
                 }
 
-                If (LEqual (^^EC.ECON, One))
+                If (LEqual (^^EC0.ECON, One))
                 {
-                    And (^^EC.PSTA, 0x02, Local0)
+                    And (^^EC0.PSTA, 0x02, Local0)
                     If (Local0)
                     {
-                        Store (B1B2(^^EC.ST00,^^EC.ST01), Index (BFB0, Zero))
-                        Store (B1B2(^^EC.ST10,^^EC.ST11), Index (BFB0, One))
-                        Store (B1B2(^^EC.ST20,^^EC.ST21), Index (BFB0, 0x02))
-                        Store (B1B2(^^EC.ST30,^^EC.ST31), Index (BFB0, 0x03))
+                        Store (B1B2(^^EC0.ST00,^^EC0.ST01), Index (BFB0, Zero))
+                        Store (B1B2(^^EC0.ST10,^^EC0.ST11), Index (BFB0, One))
+                        Store (B1B2(^^EC0.ST20,^^EC0.ST21), Index (BFB0, 0x02))
+                        Store (B1B2(^^EC0.ST30,^^EC0.ST31), Index (BFB0, 0x03))
                         Return (BFB0)
                     }
                     Else
