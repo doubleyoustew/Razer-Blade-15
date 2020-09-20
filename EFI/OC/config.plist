@@ -608,8 +608,6 @@
 			<dict>
 				<key>layout-id</key>
 				<data>AwAAAA==</data>
-				<key>alc-delay</key>
-				<integer>1000</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -1303,7 +1301,7 @@
 			<key>ScanPolicy</key>
 			<integer>19858179</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
