@@ -1,6 +1,6 @@
 # Razer Blade 15 (early 2019) Opencore
 
-This is my opencore config for the Razer Blade 15. This is not a detailed guide, just my config with some notes. I'm currently running Mojave with this config, but it also works with Catalina (with minor changes, see below). Most stuff works, but there are minor quirks that still need some work. Use this as is - if you have the same model - or as a starting point for your laptop.
+This is my opencore config for the Razer Blade 15. This is not a detailed guide, just my config with some notes. I'm currently running Big Sur with this config. Most stuff works, but there are minor quirks that still need some work. Use this as is - if you have the same model - or as a starting point for your laptop.
 
 ## Credits and Resources
 
